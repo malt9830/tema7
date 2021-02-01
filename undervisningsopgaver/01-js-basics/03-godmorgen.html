@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <input type="text" id="navn" placeholder="Skriv venligst dit navn...">
+    <button>Tjek konsollen</button>
+    <script>
+        document.querySelector("button").addEventListener("click", godtidspunkt);
+
+        function godtidspunkt() {
+
+            /*
+                        let hour = new Date().getHours();
+            */
+            let hour = 2;
+
+            if (hour < 5) {
+                console.log("Godnat " + document.querySelector("#navn").value + ", på dette tidspunkt hvor timen senest har slået " + hour);
+            } else if (hour < 10) {
+                console.log("Godmorgen " + document.querySelector("#navn").value + ", på dette tidspunkt hvor timen senest har slået " + hour);
+            } else if (hour < 18) {
+                console.log("Goddag " + document.querySelector(" #navn").value + ", på dette tidspunkt hvor timen senest har slået " + hour);
+            } else {
+                console.log("Godaften " + document.querySelector("#navn").value + ", på dette tidspunkt hvor timen senest har slået " + hour);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
