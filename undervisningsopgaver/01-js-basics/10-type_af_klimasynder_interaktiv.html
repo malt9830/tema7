@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <input type="number" id="timer" placeholder="Angiv antallet timer hvori du befandt dig i en flyvende dødsmaskine." style="width: 420px">
+    <input type="text" id="timer" placeholder="Angiv antallet timer hvori du befandt dig i en flyvende dødsmaskine." style="width: 420px">
     <button>Tjek konsollen for mere info</button>
 
     <script>
@@ -20,14 +20,18 @@
             let co2UdledtIKgVedFlyrejse = timer * 109;
             let result = `Du har fløjet ${timer} timer og udledt ${co2UdledtIKgVedFlyrejse} kg CO2. `;
 
-            if (co2UdledtIKgVedFlyrejse < 100) {
+            if (isNaN(timer)) {
+                console.log("Det er desværre ikke sådan tal fungerer, kammerat.")
+            } else if (co2UdledtIKgVedFlyrejse == 0) {
+                console.log("Jeg ved ærligt talt ikke, hvorfor du ville prøve at putte 0...");
+            } else if (co2UdledtIKgVedFlyrejse < 100) {
                 console.log(result + "Tæt på Thunberg.");
             } else if (co2UdledtIKgVedFlyrejse < 200) {
                 console.log(result + "Ja ja, du behøver ikke at melde dig ud af Å!");
             } else if (co2UdledtIKgVedFlyrejse < 600) {
-                console.log(result + "Det er godt fo turismen i Nordeuropa.")
+                console.log(result + "Det er godt fo turismen i Nordeuropa.");
             } else {
-                console.log(result + "Nå ja vi kan jo altid kolonisere en anden planet...")
+                console.log(result + "Nå ja vi kan jo altid kolonisere en anden planet...");
             }
         }
 
