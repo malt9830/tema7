@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Skal du overveje dit datingliv?</h1>
+    <input type="number" id="age1" min="15" max="99" placeholder="Din alder...">
+    <input type="number" id="age2" min="15" max="99" placeholder="Din dates alder...">
+    <button>Er aldersforskellen yikes...?</button>
+    <script>
+        document.querySelector("button").addEventListener("click", ageDiff);
+
+        function ageDiff() {
+            let age1 = document.querySelector("#age1").value;
+            let age2 = document.querySelector("#age2").value;
+            let ageD = calculateAgeDiff(age1, age2);
+
+            if (age1 > age2) {
+                if (age2 > ageD) {
+                    console.log("Det er ok.")
+                } else {
+                    console.log("Yikes.")
+                }
+            } else {
+                if (age1 > ageD) {
+                    console.log("Det er ok.")
+                } else {
+                    console.log("Yikes.")
+                }
+            }
+        }
+
+        function calculateAgeDiff(age1, age2) {
+            if (age1 > age2) {
+                return age1 * 0.5 + 7;
+            } else {
+                return age2 * 0.5 + 7;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
