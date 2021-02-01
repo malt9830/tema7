@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <input type="text" id="length" placeholder="Angiv længde">
+    <input type="text" id="height" placeholder="Angiv højde">
+    <button>Udregn areal</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", calculateArea);
+
+        function calculateArea() {
+            let length = document.querySelector("#length").value;
+            let height = document.querySelector("#height").value;
+            let result = `Længden er ${length} meter og bredden er ${height} meter. Arealet er ${area(length,height)}`;
+
+            console.log(result);
+        }
+
+        function area(l, h) {
+            return l * h;
+        }
+
+    </script>
+</body>
+
+</html>
