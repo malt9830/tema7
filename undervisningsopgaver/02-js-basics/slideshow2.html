@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Tro på det...</h1>
+    <img src="slideshow/img1.png">
+    <button id="button">Videre</button>
+    <p>Billeder brugt med tilladelse af Rasmus Bregnhøi</p>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("DOMContentLoaded")
+        })
+
+        let button = document.querySelector("#button");
+        let img1 = document.querySelector("img");
+        /*        let img2 = document.createElement("img");
+                let img3 = document.createElement("img");
+                let img4 = document.createElement("img");
+                let img5 = document.createElement("img");
+                let img6 = document.createElement("img");
+                let img7 = document.createElement("img");
+                let img8 = document.createElement("img");
+                img2.src = "slideshow/img2";
+                img3.src = "slideshow/img3";
+                img4.src = "slideshow/img4";
+                img5.src = "slideshow/img5";
+                img6.src = "slideshow/img6";
+                img7.src = "slideshow/img7";
+                img8.src = "slideshow/img8";
+
+                let imgs = [img1, img2, img3, img4, img5, img6, img7, img8];*/
+        var imgCount = 1;
+
+
+        button.addEventListener("click", () => {
+            imgCount++;
+            img1.src = "slideshow/img" + imgCount + ".png";
+
+            if (button.textContent == "Forfra") {
+                button.textContent = "Videre";
+            }
+
+            if (imgCount == 8) {
+                button.textContent = "Forfra";
+                imgCount = 0;
+            }
+        })
+
+    </script>
+</body>
+
+</html>
