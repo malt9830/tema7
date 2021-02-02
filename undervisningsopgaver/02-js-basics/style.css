@@ -1,0 +1,25 @@
+img {
+    width: 100%;
+}
+
+main {
+    width: 100%;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+article {
+    width: 25rem;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+footer {
+    text-align: center;
+}
