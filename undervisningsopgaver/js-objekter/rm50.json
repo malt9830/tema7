@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Alfredo Di Stéfano",
+        "birthdate": "4 July 1926",
+        "deathdate": "7 July 2014",
+        "clubs": ["River Plate", "Millonarios", "Real Madrid"]
+ },
+    {
+        "name": "Ferenc Puskás",
+        "birthdate": "1 April 1927",
+        "deathdate": "17 November 2006",
+        "clubs": ["Budapest Honvéd", "Real Madrid"]
+ },
+    {
+        "name": "Raymond Kopa",
+        "birthdate": "13 October 1931",
+        "deathdate": "3 March 2017",
+        "clubs": ["Stade de Reims", "Real Madrid"]
+     }
+ ]

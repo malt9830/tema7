@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        article {
+            padding: 1rem;
+            margin: 0 auto;
+            width: 250px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="container"></section>
+    <template>
+        <article>
+            <h3></h3>
+            <p class="birth">Date of birth: </p>
+            <p class="death">Date of death: </p>
+            <p>Clubs:</p>
+            <ul class="clubs"></ul>
+        </article>
+    </template>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("DOMContentLoaded");
+        })
+
+        const file = "rm50.json";
+
+        async function getData(file) {
+            const data = await fetch(file);
+            const json = await data.json();
+            show(json);
+        }
+
+        function show(icons) {
+            const container = document.querySelector(".container");
+            const template = document.querySelector("template");
+
+            icons.forEach(icon => {
+                let clone = template.cloneNode(true).content;
+                clone.querySelector("h3").textContent = icon.name;
+                clone.querySelector(".birth").textContent += icon.birthdate;
+                clone.querySelector(".death").textContent += icon.deathdate;
+
+                icon.clubs.forEach(club => {
+                    clone.querySelector(".clubs").innerHTML += "<li>" + club + "</li>";
+                })
+
+
+                container.appendChild(clone);
+            })
+        }
+
+        getData(file);
+
+    </script>
+</body>
+
+</html>
