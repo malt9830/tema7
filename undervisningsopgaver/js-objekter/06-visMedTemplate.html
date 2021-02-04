@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        article {
+            width: 200px;
+            border: 2px dashed black;
+            margin: 5px;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            max-width: 1000px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="container"></section>
+    <template>
+        <article class="animal">
+            <h3></h3>
+            <img>
+            <p class="type">Type: </p>
+            <p class="habitat">Levested: </p>
+        </article>
+    </template>
+    <script>
+        const destination = document.querySelector("article");
+        const dyr = [{
+                "navn": "gris",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+                "levested": "svinefarme"
+            },
+            {
+                "navn": "frø",
+                "type": "amfibie",
+                "billede": "http://mabe-kea.dk/E19/pics/frog.png",
+                "levested": "vandhullet"
+            },
+            {
+                "navn": "ræv",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+                "levested": "skoven"
+            },
+            {
+                "navn": "sild",
+                "type": "fisk",
+                "billede": "http://mabe-kea.dk/E19/pics/sild.jpg",
+                "levested": "havet"
+            },
+            {
+                "navn": "krokodille",
+                "type": "krybdyr",
+                "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg",
+                "levested": "floden"
+            },
+        ]
+
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("DOMContentLoaded");
+            console.log(dyr);
+
+            const container = document.querySelector(".container");
+            const template = document.querySelector("template");
+
+            dyr.forEach(enkeltDyr => {
+                let clone = template.cloneNode(true).content;
+                clone.querySelector("h3").textContent = enkeltDyr.navn;
+                clone.querySelector("img").src = enkeltDyr.billede;
+                clone.querySelector(".type").textContent += enkeltDyr.type;
+                clone.querySelector(".habitat").textContent += enkeltDyr.levested;
+                container.appendChild(clone);
+            })
+        })
+
+    </script>
+</body>
+
+</html>
