@@ -1,0 +1,51 @@
+[
+    {
+        "title": "A Calling",
+        "director": "Christian Bengtson",
+        "country": "Denmark",
+        "length": "20 min",
+        "release": "2019",
+        "genre": "Fiction",
+        "image": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-720.jpg"
+    },
+
+    {
+        "title": "A Hole In My Heart",
+        "director": "Mees Peijnenburg",
+        "country": "Netherlands",
+        "length": "9 min",
+        "release": "2015",
+        "genre": "Fiction",
+        "image": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Q8K1pZrOs03Q0IrDkBwGVu5r-720.jpg"
+    },
+
+    {
+        "title": "A Place In The Sun",
+        "director": "Christian Zipfel",
+        "country": "Germany",
+        "length": "20 min",
+        "release": "2018",
+        "genre": "Documentary",
+        "image": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/hUd4SdGQ8I23ovxWnGtBz4Ck-720.jpg"
+    },
+
+    {
+        "title": "ANIME",
+        "director": "Arnaud Brisebois",
+        "country": "Canada",
+        "length": "12 min",
+        "release": "2016",
+        "genre": "Fiction",
+        "image": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/FE3GG1abinQKHS0yh4xpyiY2-720.jpg"
+    },
+
+    {
+        "title": "Adam (With An Eye)",
+        "director": "Derrick Duan",
+        "country": "Australia",
+        "length": "5 min",
+        "release": "2019",
+        "genre": "Animation",
+        "image": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W7FHSWPGAwJyhiByWSWMXGOc-720.jpg"
+    }
+]

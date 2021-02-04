@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: dimgrey;
+            margin: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        article {
+            padding: 1rem;
+            background: #2B2D2F;
+            margin: 0.5rem;
+            cursor: pointer;
+        }
+
+        header {
+            background: #2B2D2F;
+            width: 100%;
+            margin: 0 auto 2rem;
+            padding: 0.1rem;
+        }
+
+        h1 {
+            color: white;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        h3 {
+            color: white;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 1.5rem;
+            margin: 0.5rem auto;
+        }
+
+        h4 {
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            margin: 0rem auto;
+        }
+
+        p {
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            text-align: right;
+            margin: 1rem auto 0rem;
+        }
+
+        @media (min-width:650px) {
+            section {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width:975px) {
+            section {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Many Miserable Movies Inc.</h1>
+    </header>
+    <main>
+        <section class="container"></section>
+        <template>
+            <article>
+                <img>
+                <h3></h3>
+                <h4>by </h4>
+                <p></p>
+            </article>
+        </template>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("DOMContentLoaded");
+        })
+
+        const file = "events.json";
+
+        async function getData(file) {
+            const data = await fetch(file);
+            const json = await data.json();
+            show(json);
+        }
+
+        function show(movies) {
+            const container = document.querySelector(".container");
+            const template = document.querySelector("template");
+
+            movies.forEach(movie => {
+                let clone = template.cloneNode(true).content;
+                clone.querySelector("img").src = movie.image;
+                clone.querySelector("h3").textContent = movie.title;
+                clone.querySelector("h4").textContent += movie.director;
+                clone.querySelector("p").innerHTML = movie.genre + " | " + movie.release + " | " + movie.country + " | " + movie.length;
+
+                container.appendChild(clone);
+            })
+        }
+
+        getData(file);
+    </script>
+</body></html>
