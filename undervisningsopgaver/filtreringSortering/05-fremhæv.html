@@ -312,6 +312,7 @@
                 if (filter == "alle" || filter == person.troende) {
                     let clone = template.cloneNode(true).content;
                     clone.querySelector("img").src = media + person.billede[0];
+                    clone.querySelector("img").alt = person.billede[0];
                     clone.querySelector("h2").innerHTML = `<b>${person.fornavn} </b>` + person.efternavn;
                     clone.querySelector("h3").textContent = person.titel;
                     clone.querySelector("p").textContent = `${person.hobby} ${person.hobby} ${person.hobby} ${person.hobby}`;
