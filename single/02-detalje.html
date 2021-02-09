@@ -5,11 +5,218 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        #section_person {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 5rem;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+            background: #550900;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+        }
+
+        .active {
+            background: #550900;
+        }
+
+        .logo {
+            display: inline-block;
+            font-family: 'Roboto Mono', serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.2rem;
+            font-weight: 100;
+            padding: 0 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .burger {
+            display: inline-block;
+            font-family: 'Roboto Mono', serif;
+            font-size: 1.5rem;
+            margin: 0 1rem 0 0;
+            color: white;
+        }
+
+        article {
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        article .col {
+            padding: 1rem;
+        }
+
+        article .col_flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        article h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.7rem;
+            margin: 0 0 0.5rem;
+        }
+
+        article h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin: 0.3rem 0;
+        }
+
+        article p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            margin: 0.5rem 0;
+        }
+
+        article .normal_button {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background: #550900;
+            color: white;
+            border: 2px solid #550900;
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+        }
+
+        article .hover_button {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background: white;
+            color: #550900;
+            border: 2px solid #550900;
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+        }
+
+        article .hover_button:hover {
+            background: #550900;
+            color: white;
+        }
+
+        b {
+            font-weight: 400;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        @media (min-width:769px) {
+            article {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+    </style>
+
 </head>
 
 <body>
-    <script></script>
+    <header>
+        <nav>
+            <a class="logo pointer" href="01-kald.html">Find-a-Friend</a>
+            <p class="burger pointer">☰</p>
+        </nav>
+    </header>
+    <main>
+        <section id="section_person">
+            <article>
+                <div class="col">
+                    <img>
+                </div>
+                <div class="col col_flex">
+                    <div class="top">
+                        <h2></h2>
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                    <div class="bottom">
+                        <button class="pointer normal_button">Add to Bookings</button>
+                        <button class="pointer hover_button">Book Session</button>
+                        <button class="pointer hover_button" id="return_button">Go back</button>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+
+        let person;
+
+        const media = "https://persongalleri-5d3e.restdb.io/media/";
+        const myHeaders = {
+            'x-apikey': "600fe9211346a1524ff12e31"
+        };
+
+        console.log("ID", id);
+        document.addEventListener("DOMContentLoaded", loadJSON);
+
+        async function loadJSON() {
+            const JSONData = await fetch(`https://persongalleri-5d3e.restdb.io/rest/persongalleri/${id}`, {
+                headers: myHeaders
+            })
+
+            person = await JSONData.json();
+
+            console.log("people", person);
+            showPerson(person);
+        }
+
+        function showPerson() {
+            document.querySelector("img").src = media + person.billede[0];
+            document.querySelector("img").alt = person.billede[0];
+            const RNG = Math.floor(Math.random() * 10 + 18);
+            document.querySelector("h2").innerHTML = `<b>${person.fornavn} </b>` + person.efternavn + `<b>, ${RNG}</b>`;
+            document.querySelector("h3").textContent = person.titel;
+            document.querySelector("#section_person p").textContent = `${person.hobby} ${person.hobby} ${person.hobby} ${person.hobby} ${person.hobby} ${person.hobby} ${person.hobby} ${person.hobby}`;
+            document.querySelector("#return_button").addEventListener("click", () => {
+                history.back();
+            })
+        }
+
+    </script>
 </body>
 
 </html>

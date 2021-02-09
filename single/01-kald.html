@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
@@ -98,6 +97,7 @@
 
         #section_people nav {
             text-align: center;
+            margin-bottom: 1rem;
         }
 
         #section_people button {
@@ -304,6 +304,7 @@
 
         function showPeople() {
             console.log("showingPeople");
+            console.log(people);
             const container = document.querySelector(".container");
             const template = document.querySelector("template");
             container.textContent = "";
