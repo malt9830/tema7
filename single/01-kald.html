@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        #section_landing {
+            width: 100%;
+            height: 100vh;
+            background-image: url(faf_bg.svg);
+            background-size: cover;
+            text-align: center;
+            background-position: 15%;
+        }
+
+        #landing_text {
+            position: absolute;
+            top: 14%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90vw;
+        }
+
+        #landing_text h2 {
+            font-family: 'Roboto Mono', sans-serif;
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        #landing_text h1 {
+            font-family: 'Roboto Mono', sans-serif;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        #landing_text hr {
+            font-family: 'Roboto Mono', sans-serif;
+            color: white;
+            max-width: 25rem;
+        }
+
+        #landing_text a {
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            border: 2px solid white;
+            background: #550900;
+            font-size: 2rem;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #landing_text a:hover {
+            color: #550900;
+            background: white;
+        }
+
+        #section_people {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 10rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+        }
+
+        #section_people h1 {
+            font-family: 'Roboto Mono', sans-serif;
+            color: #550900;
+            font-size: 2.3rem;
+            text-align: center;
+        }
+
+        #section_people nav {
+            text-align: center;
+        }
+
+        #section_people button {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            font-size: 1.5rem;
+            background: white;
+            color: #550900;
+            border: 2px solid #550900;
+            display: inline-block;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        #section_people button:hover {
+            background: #550900;
+            color: white;
+        }
+
+        #section_people .selected {
+            background: #550900;
+            color: white;
+        }
+
+        article {
+            max-width: 325px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+        }
+
+        .active {
+            background: #550900;
+        }
+
+        .logo {
+            display: inline-block;
+            font-family: 'Roboto Mono', serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.2rem;
+            font-weight: 100;
+            padding: 0 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .burger {
+            display: inline-block;
+            font-family: 'Roboto Mono', serif;
+            font-size: 1.5rem;
+            margin: 0 1rem 0 0;
+            color: white;
+        }
+
+        article h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.7rem;
+            margin: 0.5rem 0;
+        }
+
+        article h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin: 0.3rem 0;
+        }
+
+        article p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            margin: 0.5rem 0;
+        }
+
+        article a {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background: #550900;
+            color: white;
+            border: 2px solid #550900;
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        b {
+            font-weight: 400;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        @media (min-width:730px) {
+            #landing_text {
+                top: 27%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="logo pointer" href="#section_landing">Find-a-Friend</a>
+            <p class="burger pointer">☰</p>
+        </nav>
+    </header>
+    <main>
+        <section id="section_landing">
+            <div id="landing_text">
+                <h2>Got none? Get some.</h2>
+                <hr>
+                <h1>Find-a-Friend</h1>
+                <a href="#section_people">FIND FRIENDS</a>
+            </div>
+        </section>
+        <section id="section_people">
+            <h1>Meet Our Most Popular Friends</h1>
+            <nav>
+                <button data-troende="alle" class="selected">Popular</button>
+                <button data-troende="ja">Theist</button>
+                <button data-troende="nej">Atheist</button>
+                <button data-troende="tvivler">Agnostic</button>
+            </nav>
+            <div class="container"></div>
+        </section>
+        <template>
+            <article>
+                <div class="top">
+                    <img>
+                    <h2></h2>
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div class="bottom">
+                    <a>Learn more...</a>
+                </div>
+            </article>
+        </template>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("DOMContentLoaded");
+            getData();
+        })
+
+        window.onscroll = function() {
+            console.log("scroll");
+            if (window.scrollY > 250) {
+                document.querySelector("header").classList.add("active");
+            } else {
+                document.querySelector("header").classList.remove("active");
+            }
+        }
+
+        let people;
+        let filter = "alle";
+        const peopleTitle = document.querySelector("#section_people h1");
+        const buttonFilters = document.querySelectorAll("nav button");
+        buttonFilters.forEach(button => button.addEventListener("click", filterPeople));
+
+        function filterPeople() {
+            filter = this.dataset.troende;
+            console.log(filter);
+
+            document.querySelector(".selected").classList.remove("selected");
+            this.classList.add("selected");
+
+            showPeople();
+
+            peopleTitle.textContent = `Meet Our Most ${this.textContent} Friends`;
+        }
+
+        const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+        const media = "https://persongalleri-5d3e.restdb.io/media/";
+        const options = {
+            headers: {
+                'x-apikey': "600fe9211346a1524ff12e31"
+            }
+        };
+
+        async function getData() {
+            const response = await fetch(url, options);
+            people = await response.json();
+            showPeople();
+        }
+
+        function showPeople() {
+            console.log("showingPeople");
+            const container = document.querySelector(".container");
+            const template = document.querySelector("template");
+            container.textContent = "";
+
+            people.forEach(person => {
+                if (filter == "alle" || filter == person.troende) {
+                    let clone = template.cloneNode(true).content;
+                    clone.querySelector("img").src = media + person.billede[0];
+                    clone.querySelector("img").alt = person.billede[0];
+                    clone.querySelector("h2").innerHTML = `<b>${person.fornavn} </b>` + person.efternavn;
+                    clone.querySelector("h3").textContent = person.titel;
+                    clone.querySelector("p").textContent = `${person.hobby} ${person.hobby} ${person.hobby} ${person.hobby}`;
+                    clone.querySelector("article").addEventListener("click", () => showDetails(person));
+                    container.appendChild(clone);
+                }
+            })
+        }
+
+        function showDetails(who) {
+            console.log("showDetails");
+            location.href = `02-detalje.html?id=${who._id}`;
+        }
+
+    </script>
+</body>
+
+</html>
