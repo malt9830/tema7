@@ -16,7 +16,13 @@ img {
 
 section {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 2.5rem auto;
+    padding: 1rem;
+}
+
+h2 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 2rem;
 }
 
 /*--------------------header--------------------*/
@@ -63,6 +69,22 @@ li {
     margin: auto 0.5rem;
 }
 
+@media (min-width: 667px) {
+    header {
+        padding: 3rem 5rem;
+    }
+}
+
+@media (min-width: 800px) {
+    nav {
+        display: inline-block;
+    }
+
+    #burgerMenu {
+        display: none;
+    }
+}
+
 /*--------------------landing--------------------*/
 
 #landing {
@@ -76,14 +98,12 @@ li {
 
 #landing_text {
     position: absolute;
-    min-width: 20rem;
+    min-width: 15rem;
     width: 17%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
-
-#landing_text img {}
 
 #landing_text a {
     display: block;
@@ -114,19 +134,48 @@ li {
     bottom: 0;
 }
 
-@media (min-width: 667px) {
-    header {
-        padding: 3rem 5rem;
+/*--------------------about--------------------*/
+
+#section_about {}
+
+/*--------------------menu--------------------*/
+
+#section_menu {}
+
+article {
+    cursor: pointer;
+    padding: 1rem 0;
+}
+
+@media (min-width:600px) {
+    .menu_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (min-width: 800px) {
-    nav {
-        display: inline-block;
+@media (min-width:1000px) {
+    .menu_grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
+}
 
-    #burgerMenu {
-        display: none;
-    }
+/*--------------------footer--------------------*/
 
+footer {
+    background: black;
+    text-align: center;
+    padding: 1rem;
+}
+
+footer i {
+    color: white;
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+footer p {
+    color: white;
+    font-family: 'Roboto', sans-serif;
 }

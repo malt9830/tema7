@@ -44,7 +44,7 @@ async function loadJSON() {
 function showCuisine() {
     console.log("showingCuisine");
     console.log(cuisine);
-    const container = document.querySelector("#section_menu");
+    const container = document.querySelector(".menu_grid");
     const template = document.querySelector("template");
     container.textContent = "";
 
