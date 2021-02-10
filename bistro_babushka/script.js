@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.onscroll = function () {
     console.log("scroll");
-    if (window.scrollY > 250) {
+    if (window.scrollY > 50) {
         document.querySelector("header").classList.add("active");
     } else {
         document.querySelector("header").classList.remove("active");
@@ -44,14 +44,15 @@ async function loadJSON() {
 function showCuisine() {
     console.log("showingCuisine");
     console.log(cuisine);
-    const container = document.querySelector(".container");
+    const container = document.querySelector("#section_menu");
     const template = document.querySelector("template");
     container.textContent = "";
 
     cuisine.forEach(dish => {
         let clone = template.cloneNode(true).content;
         clone.querySelector("img").src = media + dish.billede[0];
-        clone.querySelector("img").alt = dish.billede[0];
+        clone.querySelector("img").alt = dish.navn;
+        clone.querySelector("img").addEventListener("click", () => showDetails(dish));
         container.appendChild(clone);
     })
 }
