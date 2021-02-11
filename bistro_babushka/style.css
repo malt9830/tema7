@@ -464,9 +464,13 @@ li a {
     filter: grayscale(100%);
 }
 
+#section_about h2 {
+    font-size: 1.7rem;
+}
+
 #section_about p {
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin-top: 1.5rem;
 }
 
@@ -501,7 +505,7 @@ li a {
 #contact_form input,
 #contact_form textarea {
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
+    font-size: 1.3rem;
     width: 100%;
     padding: 0.5rem;
     margin: 0.3rem 0;
@@ -514,7 +518,7 @@ li a {
 
 #contact_form button {
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: black;
     background: white;
     border: 2px solid black;
