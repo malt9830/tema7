@@ -13,19 +13,6 @@ window.onscroll = function () {
 }
 
 let cuisine;
-/*const peopleTitle = document.querySelector("#section_people h1");
-const buttonFilters = document.querySelectorAll("nav button");
-buttonFilters.forEach(button => button.addEventListener("click", filterPeople));
-
-function filterPeople() {
-    filter = this.dataset.troende;
-    console.log(filter);
-
-    document.querySelector(".selected").classList.remove("selected");
-    this.classList.add("selected");
-
-    showCuisine();
-}*/
 
 const url = "https://babushka-dd8a.restdb.io/rest/menu";
 const media = "https://babushka-dd8a.restdb.io/media/";
@@ -44,15 +31,19 @@ async function loadJSON() {
 function showCuisine() {
     console.log("showingCuisine");
     console.log(cuisine);
-    const container = document.querySelector(".menu_grid");
-    const template = document.querySelector("template");
-    container.textContent = "";
 
     cuisine.forEach(dish => {
+        const template = document.querySelector("template");
+        let filter = `.cat_${dish.kategori}`;
+        let container = document.querySelector(filter);
         let clone = template.cloneNode(true).content;
         clone.querySelector("img").src = media + dish.billede[0];
         clone.querySelector("img").alt = dish.navn;
-        clone.querySelector("img").addEventListener("click", () => showDetails(dish));
+        clone.querySelector("article").addEventListener("click", () => showDetails(dish));
+        clone.querySelector(".name").textContent = dish.navn;
+        clone.querySelector(".price").textContent = `${dish.pris},-`;
+        clone.querySelector(".description").textContent = dish.kortbeskrivelse;
+
         container.appendChild(clone);
     })
 }
