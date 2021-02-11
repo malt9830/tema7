@@ -17,26 +17,83 @@
 
 <body>
     <header class="active">
-        <div>
+        <div id="header_desk">
             <a href="index.html">
                 <img src="img/babushka_face.svg" alt="face of logo resembling a matryoshka doll">
             </a>
+            <div>
+                <i id="burgerMenuOn" class="fas fa-bars"></i>
+                <i id="burgerMenuOff" class="fas fa-times"></i>
+                <nav id="navRow">
+                    <ul>
+                        <li><a href="index.html#section_menu">Menu</a></li>
+                        <li><a href="about.html">Om</a></li>
+                        <li><a href="contact.html">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <div>
-            <i id="burgerMenu" class="fas fa-bars"></i>
+        <div id="burgerItems">
+            <hr style="margin: 0">
             <nav>
                 <ul>
-                    <li><a>Nav1</a></li>
-                    <li><a>Nav2</a></li>
-                    <li><a>Nav3</a></li>
-                    <li><a>Nav4</a></li>
-                    <li><a>Nav5</a></li>
-                    <li><a>Nav6</a></li>
+                    <li><a href="index.html#section_menu">Menu</a></li>
+                    <hr>
+                    <li><a href="about.html">Om</a></li>
+                    <hr>
+                    <li><a href="contact.html">Kontakt</a></li>
+                    <hr style="margin-bottom: 0">
                 </ul>
             </nav>
         </div>
     </header>
-    <script src="script.js"></script>
+    <main>
+        <img>
+        <h2></h2>
+        <h3></h3>
+    </main>
+    <footer>
+        <div id="footer">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+        </div>
+        <p>Generiskgade 12, 2300 København S</p>
+        <p>© Copyright 2021 BABUSHKA. All Rights Reserved.</p>
+    </footer>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+
+        let dish;
+
+        const media = "https://babushka-dd8a.restdb.io/media/";
+        const myHeaders = {
+            'x-apikey': "600ec2fb1346a1524ff12de4"
+        };
+
+        console.log("ID", id);
+        document.addEventListener("DOMContentLoaded", loadJSON);
+
+        async function loadJSON() {
+            const JSONData = await fetch(`https://babushka-dd8a.restdb.io/rest/menu/${id}`, {
+                headers: myHeaders
+            })
+
+            dish = await JSONData.json();
+
+            console.log("dishes", dish);
+            showDish(dish);
+        }
+
+        function showDish() {
+            document.querySelector("img").src = media + dish.billede[0];
+            document.querySelector("img").alt = dish.billede[0];
+            document.querySelector("h2").textContent = dish.navn;
+            document.querySelector("h3").textContent = dish.langbeskrivelse;
+        }
+
+    </script>
 </body>
 
 </html>

@@ -12,6 +12,31 @@ window.onscroll = function () {
     }
 }
 
+const burgerOn = document.querySelector("#burgerMenuOn");
+const burgerOff = document.querySelector("#burgerMenuOff");
+const burgerItems = document.querySelector("#burgerItems");
+const header = document.querySelector("header");
+
+burgerOn.addEventListener("click", () => {
+    burgerOn.style.display = "none";
+    burgerOff.style.display = "inline-block";
+
+    header.classList.add("active");
+    burgerItems.style.display = "block";
+})
+
+burgerOff.addEventListener("click", () => {
+    burgerOn.style.display = "inline-block";
+    burgerOff.style.display = "none";
+
+    burgerItems.style.display = "none";
+
+    if (window.scrollY < 51) {
+        header.classList.remove("active");
+    }
+})
+
+
 let cuisine;
 
 const url = "https://babushka-dd8a.restdb.io/rest/menu";
@@ -34,7 +59,7 @@ function showCuisine() {
 
     cuisine.forEach(dish => {
         const template = document.querySelector("template");
-        let filter = `.cat_${dish.kategori}`;
+        let filter = `#cat_${dish.kategori}`;
         let container = document.querySelector(filter);
         let clone = template.cloneNode(true).content;
         clone.querySelector("img").src = media + dish.billede[0];
